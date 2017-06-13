@@ -17,7 +17,7 @@ def main():
     base_url = ''
 
     base_url = os.path.join(URL_BASE, answer + URL_EXT)
-    print('Answer: ' + answer)
+    print('\nAnswer: ' + answer)
     rh.open(base_url)
 
 

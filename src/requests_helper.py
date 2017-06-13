@@ -8,26 +8,29 @@ DEFAULT_HEADERS = {
 }
 
 
-def open(base_url, params=None):
+def open(base_url, params=None, new=0, autoraise=True):
     payload = _format_payload(params)
-    url = '?'.join([base_url, payload])
-    webbrowser.open_new(url)
+    if payload:
+        url = '?'.join([base_url, payload])
+    else:
+        url = base_url
+    webbrowser.open(url, new, autoraise)
 
 
-def post(base_url, params=None, headers=None):
+def post(base_url, params=None):
+
+    payload = _format_payload(params)
+
+    return requests.post(
+        base_url, params=payload)
+
+
+def get(base_url, params):
 
     payload = _format_payload(params)
 
     return requests.get(
-        base_url, headers=headers or DEFAULT_HEADERS, data=payload)
-
-
-def get(base_url, params, headers=None):
-
-    payload = _format_payload(params)
-
-    return requests.get(
-        base_url, headers=headers or DEFAULT_HEADERS, data=payload)
+        base_url, data=payload)
 
 
 def _format_payload(params=None):
@@ -39,6 +42,5 @@ def _format_payload(params=None):
         payload = urllib.urlencode(params)
     except TypeError:
         # None
-        payload = ''
-
+        payload = None
     return payload
