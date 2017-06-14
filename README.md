@@ -3,7 +3,7 @@ Python Challenge Solutions
 
 ![Travis CI][1]
 
-Zachary Gannon
+Written by Zachary Gannon
 
 ---
 
