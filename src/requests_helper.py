@@ -1,5 +1,6 @@
 import urllib
 import webbrowser
+
 import requests
 
 DEFAULT_HEADERS = {
@@ -21,16 +22,14 @@ def post(base_url, params=None):
 
     payload = _format_payload(params)
 
-    return requests.post(
-        base_url, params=payload)
+    return requests.post(base_url, params=payload)
 
 
 def get(base_url, params):
 
     payload = _format_payload(params)
 
-    return requests.get(
-        base_url, data=payload)
+    return requests.get(base_url, data=payload)
 
 
 def _format_payload(params=None):

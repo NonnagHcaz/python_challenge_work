@@ -2,7 +2,7 @@ import os
 
 try:
     from . import requests_helper as rh
-except Exception:
+except:
     import requests_helper as rh
 
 HERE = 'http://www.pythonchallenge.com/pc/def/0.html'

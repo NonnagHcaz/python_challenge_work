@@ -3,7 +3,7 @@ import pickle
 
 try:
     from . import requests_helper as rh
-except Exception:
+except:
     import requests_helper as rh
 
 HERE = 'http://www.pythonchallenge.com/pc/def/peak.html'
@@ -25,9 +25,9 @@ def main():
             out_fp.write(''.join([k * v for k, v in line]) + '\n')
 
     answer = 'channel'
-    base_url =
+    base_url = ''
     print('\nAnswer: ' + answer)
-    rh.open(base_url)
+    # rh.open(base_url)
 
 
 if __name__ == '__main__':
